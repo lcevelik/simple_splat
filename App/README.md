@@ -93,7 +93,7 @@ GaussianSplatting_Standalone\
 |   +-- bin\colmap.exe             <- COLMAP reconstruction engine
 |   +-- lib\*.dll                  <- COLMAP runtime libraries
 +-- Brush\
-|   +-- brush_app.exe              <- Brush Gaussian splat trainer
+|   +-- brush_app.exe              <- Brush trainer (download separately - see below)
 +-- App\
     +-- app.py                     <- Flask web server (main entry point)
     +-- run_glomap.py              <- COLMAP pipeline runner
@@ -202,6 +202,19 @@ sharp --version   # verify
 
 ---
 
+## Downloading Brush
+
+Brush is the Gaussian splat training engine. It is **not bundled** (the binary exceeds GitHub's file size limit) and must be downloaded once:
+
+1. Visit **https://github.com/ArthurBrussee/brush/releases/latest**
+2. Download the Windows build (`brush_app.exe`)
+3. Create a folder named `Brush\` in the package root (next to `START_SERVER.bat`)
+4. Place `brush_app.exe` inside `Brush\`
+
+Without Brush the pipeline still completes — it falls back to exporting a basic COLMAP sparse point cloud instead of a trained Gaussian splat.
+
+---
+
 ## Troubleshooting
 
 **Viewer shows blank/white screen**
@@ -214,8 +227,9 @@ sharp --version   # verify
 - If moved the package, ensure DLLs in `COLMAP\lib\` are alongside the binary
 
 **Brush not found / no PLY generated**
-- Bundled Brush is at `Brush\brush_app.exe`
-- If Brush fails, the app falls back to generating a basic COLMAP sparse point cloud
+- Download `brush_app.exe` from https://github.com/ArthurBrussee/brush/releases/latest
+- Place it in `Brush\` folder next to `START_SERVER.bat` — see "Downloading Brush" above
+- If Brush is missing or fails, the app falls back to a basic COLMAP sparse point cloud
 - Check real-time logs at http://localhost:5000/logs for details
 
 **COLMAP failed to reconstruct**

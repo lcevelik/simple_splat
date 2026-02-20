@@ -10,7 +10,30 @@ This is a **fully standalone** package. Everything is bundled — Python, COLMAP
 2. A console window opens and Python packages install from bundled wheels (first run only, ~30 seconds)
 3. Open your browser at **http://localhost:5000**
 
-That's it. No pip install, no Python install, no COLMAP install needed.
+No pip install, no Python install, no COLMAP install needed.
+
+---
+
+## One-Time Download: Brush
+
+Brush is the Gaussian splat trainer. It is **not bundled** (too large for distribution) and must be downloaded once:
+
+1. Go to **https://github.com/ArthurBrussee/brush/releases/latest**
+2. Download the Windows release (`brush_app.exe`)
+3. Create a folder named **`Brush\`** in the root of this package (next to `START_SERVER.bat`)
+4. Place `brush_app.exe` inside `Brush\`
+
+Expected result:
+```
+GaussianSplatting_Standalone\
++-- Brush\
+|   +-- brush_app.exe    <- place it here
++-- START_SERVER.bat
++-- QUICK_START.bat
++-- ...
+```
+
+Without Brush the pipeline still runs — it falls back to exporting a basic COLMAP sparse point cloud (PLY). You will still be able to view it in the browser, but it will not be a trained Gaussian splat.
 
 ---
 

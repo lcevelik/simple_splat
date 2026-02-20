@@ -18,17 +18,25 @@ WHAT'S INCLUDED:
    [x] Python 3.11 (portable, no install needed)
    [x] Gaussian Splatting Web App (Flask)
    [x] COLMAP (3D reconstruction engine)
-   [x] Brush (Gaussian splat training - GPU accelerated)
    [x] All Python dependencies (offline wheels, no internet required)
    [x] PlayCanvas SuperSplat Viewer v1.15.0 (browser-based, WebGPU)
    [x] WebXR controller profiles (for VR viewing, fully offline)
 
-NO INSTALLATION REQUIRED!
+DOWNLOAD REQUIRED (one-time):
+   [ ] Brush - Gaussian splat trainer (too large to bundle, download separately)
+       1. Go to: https://github.com/ArthurBrussee/brush/releases/latest
+       2. Download the Windows build (brush_app.exe)
+       3. Create a folder called "Brush\" next to this README.txt
+       4. Place brush_app.exe inside it
+   Without Brush the app still works but outputs a basic point cloud
+   instead of a full trained Gaussian splat.
+
+NO OTHER INSTALLATION REQUIRED!
    - No Python install
    - No COLMAP install
    - No pip install
-   - No internet connection needed
-   - Just extract and run!
+   - No internet connection needed at runtime
+   - Just extract, add Brush, and run!
 
 SYSTEM REQUIREMENTS:
    - Windows 10/11 (64-bit)
